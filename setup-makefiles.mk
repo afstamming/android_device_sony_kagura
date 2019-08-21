@@ -1,4 +1,6 @@
-# Copyright 2014 The Android Open Source Project
+#!/bin/bash
+#
+# Copyright (C) 2018-2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,6 +13,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_kagura.mk
+set -e
+
+# Required!
+export DEVICE=kagura
+export DEVICE_COMMON=tone-common
+export VENDOR=sony
+
+export DEVICE_BRINGUP_YEAR=2019
+
+"./../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "$@"
